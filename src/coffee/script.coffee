@@ -1,11 +1,12 @@
 $(document).on({
 	ready: ->
 		# init functions
-		lp.initialize()
+		initialize()
+		# basic functions
+		bases()
 		# ready functions
 		lp.ready()
 })
-
 
 $(window).on({
 	load: ->
@@ -13,35 +14,52 @@ $(window).on({
 })
 
 
+initialize = ->
+	init.changeTransitTarget()
+	init.registEasing()
+	init.getScrollTarget()
+	init.getUseragent()
+
+
+bases = ->
+	basic.notSaveImages()
+	basic.scrollSection()
+	# basic.scrollTop()
+
+
 lp = {}
-lp.initialize = ->
+lp.ready = ->
+	console.log 'ready'
+
+lp.load = ->
+	console.log 'load'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+init = {}
+init.changeTransitTarget = ->
 	# transitionに対応していなければanimate
 	if !$.support.transition
 		$.fn.transition = $.fn.animate;
 
-	# rootの取得
-	root = undefined
-	scripts = document.getElementsByTagName('script')
-	cur_path = ((href) ->
-		a = href.replace(/[\?|#].*$/, '')
-		if !/\/$/.test(a)
-			a = a.slice(0, a.lastIndexOf('/') + 1)
-		a
-	)(location.href)
-	i = scripts.length
-	while i--
-		match = scripts[i].src.match(/(^|.*\/)script.min\.js$/)
-		if match
-			root = match[1]
-			if root.substr(0, 1) == '/'
-				root = location.protocol + '//' + location.host + root
-			else if root.substr(0, 4) == 'file'
-				root = cur_path
-			else if root.substr(0, 4) != 'http'
-				root = cur_path + root
-			break
-	window.ROOT = root.replace('js/', '')
 
+init.registEasing = ->
 	# easingの登録
 	$.extend(jQuery.easing, {
 		easeOutBack: (x, t, b, c, d, s) ->
@@ -60,6 +78,8 @@ lp.initialize = ->
 			return c / 2 * ((t -= 2) * t * t + 2) + b
 	})
 
+
+init.getScrollTarget = ->
 	# ブラウザによってscroll対象が'body'か'html'か判別
 	isHtmlScrollable = do ->
 		html = $('html')
@@ -72,7 +92,8 @@ lp.initialize = ->
 		return rs
 	window.scrTgt = if isHtmlScrollable then 'html' else 'body'
 
-	# ユーザーエージェント判別
+
+init.getUseragent = ->
 	window.UA = do ->
 		ua = window.navigator.userAgent.toLowerCase()
 		return {
@@ -98,53 +119,19 @@ lp.initialize = ->
 
 
 
-lp.ready = ->
-	console.log 'READY'
-	lp.smartPhone()
-
-	# basic functions
-	basic.notSaveImages()
-	basic.scrollSection()
-	# basic.scrollTop()
-
-
-
-lp.smartPhone = ->
-	if ! UA.SP
-		return
-	console.log 'SP'
-
-
-
-
-lp.load = ->
-	console.log 'LOAD'
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 basic = {}
 basic.scrollSection = ->
-	hgt = $('.header').outerHeight()
 	trg = $('.js-scrKey')
 	tgt = $('.js-scrTgt')
 
 	trg.on('click', (e) ->
 		e.preventDefault()
 		i = trg.index(this)
-		# p = tgt.eq(i).offset().top
-		p = tgt.eq(i).offset().top - hgt
+		p = tgt.eq(i).offset().top - 10
 		$(window.window.scrTgt).animate({ scrollTop: p }, 'fast')
 	)
 
@@ -174,7 +161,7 @@ basic.scrollTop = ->
 			scrollDuration: 200
 			fadeDuration: [ 500, 100]
 
-		controlHTML: '<img src="'+ROOT+'images/btn_totop.jpg">'
+		controlHTML: '<img src="'+ROOT+'images/btn_totop.png">'
 
 		controlAttrs:
 			offsetx: 25
