@@ -91,6 +91,7 @@ lp.initialize = ->
 						ua.indexOf('blackberry') isnt -1 or
 						ua.indexOf('bb') isnt -1
 			AD  : ua.indexOf('android') isnt -1
+			ltIE8:typeof window.addEventListener is 'undefined' and typeof document.getElementsByClassName is 'undefined'
 		}
 
 
