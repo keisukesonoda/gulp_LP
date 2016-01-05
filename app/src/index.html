@@ -7,12 +7,18 @@
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
+
+	<!-- build:css_pc css/style.min.css -->
 	<link rel="stylesheet" href="css/style.css" media="screen and (min-width: 799px)">
+	<!-- endbuild -->
+	<!-- build:css_sp css/sp.min.css -->
 	<link rel="stylesheet" href="css/sp.css" media="screen and (max-width: 798px)">
+	<!-- endbuild -->
+
 	<!--[if lt IE 9]>
-	<link rel="stylesheet" href="css/style.css">
-	<script src="js/html5shiv.js" type="text/javascript"></script>
-	<script src="js/selectivizr-min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/style.min.css">
+	<script src="js/_ltIE8/html5shiv.js" type="text/javascript"></script>
+	<script src="js/_ltIE8/selectivizr-min.js" type="text/javascript"></script>
 	<![endif]-->
 </head>
 <body>
@@ -29,14 +35,16 @@
 		</div><!-- /contents -->
 
 
-
-
 		<footer class="footer">
 			<h2>FOOTER TITLE</h2>
 		</footer><!-- /footer -->
 	</div><!-- /wrapper -->
 
+	<!-- build:js_vendor js/vendor.js -->
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="js/script.min.js"></script>
+	<script type="text/javascript" src="js/jquery.transit.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<!-- endbuild -->
+
 </body>
 </html>
