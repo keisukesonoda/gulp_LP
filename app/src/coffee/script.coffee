@@ -127,12 +127,22 @@ my_base = {}
 my_base.scrollSection = ->
 	trg = $('.js-scrKey')
 	tgt = $('.js-scrTgt')
+	scr = {}
 
 	trg.on('click', (e) ->
 		e.preventDefault()
-		i = trg.index(this)
-		p = tgt.eq(i).offset().top - 10
-		$(window.window.scrTgt).animate({ scrollTop: p }, 'fast')
+
+		if ! $(this).attr('data-href')
+			scr = {}
+			return
+		else
+			scr.to = $(this).attr('data-href')
+
+		tgt.each ->
+			if $(this).hasClass(scr.to)
+				scr.pos = ($(this).offset().top) - 30
+
+		$(scrTgt).animate({ scrollTop: scr.pos }, 'fast')
 	)
 
 
