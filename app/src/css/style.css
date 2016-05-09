@@ -58,33 +58,13 @@ table {
   border-spacing: 0;
 }
 
-/*
- * Copyright (C) 2014 Root-013
- *      https://www.google.com/get/noto/
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-@font-face {
-  font-family: 'Noto Sans';
-  src: url("../fonts/NotoSansCJKjp-Regular-subset.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/NotoSansCJKjp-Regular-subset.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKjp-Regular-subset.woff") format("woff"), url("../fonts/NotoSansCJKjp-Regular-subset.ttf") format("truetype");
-  /* Safari, Android, iOS */
+/* -------------------------------------
+	PC general settinngs
+------------------------------------- */
+.sp {
+  display: none !important;
 }
 
-/* -------------------------------------
-  PC org settinngs
-------------------------------------- */
 .fsm1 {
   font-size: 13px;
 }
@@ -125,7 +105,7 @@ table {
   font-size: 4px;
 }
 
-.fn {
+.fn, .ib-items .ib-item {
   font-size: 14px !important;
 }
 
@@ -145,7 +125,7 @@ table {
   font-size: 18px;
 }
 
-.fsp5 {
+.fsp5, .dbl-arr.right:before {
   font-size: 19px;
 }
 
@@ -575,7 +555,7 @@ table {
 }
 
 /* ----------------
-  text image
+	text image
 ---------------- */
 .ti {
   display: block;
@@ -583,7 +563,135 @@ table {
   background-position: left top;
   overflow: hidden;
   white-space: nowrap;
-  text-indent: 150%;
+  text-indent: 120%;
+}
+
+/*-------------------------------------
+ Base Settings
+-------------------------------------*/
+html {
+  font-size: 124.8%;
+}
+
+@media screen and (max-width: 667px) {
+  html {
+    font-size: 130.065%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  html {
+    font-size: 110.76%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 80.73%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 73.125%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  color: #000000;
+  font-size: 14px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", sans-serif;
+  min-width: 960px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------
+	tags
+-------------------- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+b {
+  font-weight: bold;
+}
+
+i {
+  display: inline-block;
+}
+
+em {
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+iframe, object, video, embed {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+}
+
+/* --------------------
+	titles
+-------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 180%;
+}
+
+h3 {
+  font-size: 160%;
+}
+
+h4 {
+  font-size: 140%;
+}
+
+h5 {
+  font-size: 120%;
+}
+
+h6 {
+  font-size: 100%;
+}
+
+/* --------------------
+	base content
+-------------------- */
+.wrapper {
+  min-width: 960px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
 }
 
 /*-------------------------------------
@@ -670,19 +778,19 @@ table {
 }
 
 .ca {
-  color: #363029 !important;
+  color: #000000 !important;
 }
 
 .cb {
-  color: #8d8157 !important;
+  color: #000000 !important;
 }
 
 .cc {
-  color: #eadb81 !important;
+  color: #000000 !important;
 }
 
 .cd {
-  color: #b99d02 !important;
+  color: #000000 !important;
 }
 
 .ce {
@@ -718,19 +826,19 @@ table {
 }
 
 .ba {
-  background-color: #363029 !important;
+  background-color: #000000 !important;
 }
 
 .bb {
-  background-color: #8d8157 !important;
+  background-color: #000000 !important;
 }
 
 .bc {
-  background-color: #eadb81 !important;
+  background-color: #000000 !important;
 }
 
 .bd {
-  background-color: #b99d02 !important;
+  background-color: #000000 !important;
 }
 
 .be {
@@ -831,7 +939,7 @@ table {
 
 /* positions
 -------------------- */
-.pos, .pos-center, .pos-vertical-center, .pos-horizontal-center, .pos-override-center {
+.pos, .pos-center, .pos-vertical-center, .arr:after, .triangle:before, .pos-horizontal-center, .pos-override-center {
   position: absolute;
   margin: auto;
 }
@@ -843,7 +951,7 @@ table {
   right: 0;
 }
 
-.pos-vertical-center {
+.pos-vertical-center, .arr:after, .triangle:before {
   top: 0;
   bottom: 0;
 }
@@ -860,178 +968,192 @@ table {
   right: -50%;
 }
 
-/*-------------------------------------
- Base Settings
--------------------------------------*/
-html {
-  font-size: 124.8%;
+/* -------------------------
+	parts
+------------------------- */
+/* texts
+-------------------- */
+.tdu {
+  text-decoration: underline;
 }
 
-@media screen and (max-width: 667px) {
-  html {
-    font-size: 130.065%;
-  }
+/* links
+-------------------- */
+.lbs {
+  color: #000000;
 }
 
-@media screen and (max-width: 568px) {
-  html {
-    font-size: 110.76%;
-  }
+.lbs:hover {
+  color: #323232;
+  text-decoration: underline;
 }
 
-@media screen and (max-width: 414px) {
-  html {
-    font-size: 80.73%;
-  }
+.tdc {
+  border-bottom: 1px solid #9b9b9b;
 }
 
-@media screen and (max-width: 375px) {
-  html {
-    font-size: 73.125%;
-  }
+.tdc:hover {
+  border-bottom: none;
 }
 
-@media screen and (max-width: 320px) {
-  html {
-    font-size: 62.5%;
-  }
+/* arrows
+-------------------- */
+.arr {
+  position: relative;
 }
 
-body {
-  color: #363029;
-  font-size: 14px;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-  line-height: 1.5;
-  min-width: 940px;
-  -webkit-text-size-adjust: 100%;
+.arr:after {
+  content: "";
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.arr.down {
+  padding-right: 10.5px;
 }
 
-b {
-  font-weight: bold;
+.arr.down:after {
+  width: 7px;
+  height: 4px;
+  right: 0;
 }
 
-i {
+.arr.blk.down:after {
+  background-position: left top;
+}
+
+.txt-arr.right:before {
+  content: "→";
+  margin-right: .5em;
+}
+
+.dbl-arr.right:before {
+  content: "»";
+}
+
+/* arrows(triangle)
+-------------------- */
+.triangle {
+  position: relative;
   display: inline-block;
 }
 
-em {
-  font-style: normal;
+.triangle:before {
+  content: '▶︎';
 }
 
-img {
-  vertical-align: bottom;
+.triangle.right {
+  padding-left: 20px;
 }
 
-.wrapper {
-  min-width: 940px;
+.triangle.right:before {
+  width: 5px;
+  height: 9px;
+  left: 0;
+}
+
+.triangle.yel.right:before {
+  background-position: left top;
+}
+
+.triangle.gry.right:before {
+  background-position: -5px top;
+}
+
+/* lists
+-------------------- */
+.disc-items .disc-item {
+  list-style-type: disc;
+  list-style-position: inside;
+  text-indent: -0.8em;
+  padding-left: 0.8em;
+  margin-top: 25px;
+  line-height: 2;
+  letter-spacing: 1.5px;
+}
+
+.notice-items .notice-item {
+  text-indent: -1.1em;
+  padding-left: 1.1em;
+}
+
+.notice-items .notice-item:before {
+  content: "※";
+}
+
+.ib-items {
+  display: table;
+  font-size: 0;
+}
+
+.ib-items .ib-item {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* tables
+-------------------- */
+.tbl-base {
   width: 100%;
-  position: relative;
-  overflow: hidden;
+  letter-spacing: 1.5px;
 }
 
-.container {
-  width: 940px;
+.tbl-base tr {
+  border-bottom: 1px solid #000000;
 }
 
-.container-sub1 {
-  width: 1024px;
+.tbl-base tr:first-child {
+  border-top: 1px solid #000000;
 }
 
-.container-sub2 {
-  width: 980px;
+.tbl-base th, .tbl-base td {
+  padding: 35px;
+  line-height: 1.8;
 }
 
-.container-sub3 {
-  width: 980px;
+.tbl-base th {
+  vertical-align: middle;
 }
 
-.container-sub4 {
-  width: 980px;
-}
-
-.container-sub5 {
-  width: 980px;
-}
-
-.container,
-.container-sub1,
-.container-sub2,
-.container-sub3,
-.container-sub4,
-.container-sub5 {
-  margin: 0 auto;
-}
-
-/*-------------------------------------
-	variables
--------------------------------------*/
+/* -------------------------
+	parts PC
+------------------------- */
 /*-------------------------------------
 	General Purpose
 -------------------------------------*/
-select, button, input, textarea {
-  background-color: transparent;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 200%;
-}
-
-h2 {
-  font-size: 180%;
-}
-
-h3 {
-  font-size: 160%;
-}
-
-h4 {
-  font-size: 140%;
-}
-
-h5 {
-  font-size: 120%;
-}
-
-h6 {
-  font-size: 100%;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-iframe, object, video, embed {
-  max-width: 100%;
-}
-
-.sp {
-  display: none !important;
-}
-
-.opac:hover {
-  opacity: 0.7;
-}
-
-/* --------------------
-	bxslider reset
+/* titles
 -------------------- */
-.main-visual .bx-wrapper .bx-viewport {
-  box-shadow: none;
-  border: none;
-  left: 0;
-  background: transparent;
+/* backgrounds
+-------------------- */
+/* --------------------
+	common sections
+-------------------- */
+.contents {
+  min-height: 500px;
+}
+
+/* header
+-------------------- */
+.header {
+  color: white;
+  background-color: black;
+  padding: 2em 0;
+}
+
+/* footer
+-------------------- */
+.footer {
+  color: white;
+  background-color: black;
+  padding: 2em 0;
 }
 
 /* --------------------
-	parts
+	navigations
+-------------------- */
+/* bnav
+-------------------- */
+/*-------------------------------------
+	Characteristic
+-------------------------------------*/
+/* --------------------
+	lower commons
 -------------------- */
