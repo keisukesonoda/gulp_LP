@@ -148,7 +148,7 @@ gulp.task 'min', ['copy'], ->
 	# 連結してminify
 	gulp.src "#{path.dest.root}/index.html"
 			.pipe usemin({
-				js_vendor: [ uglify() ]
+				js_bundle: [ uglify() ]
 				css_pc: [ cssmin() ]
 				css_sp: [ cssmin() ]
 			})
